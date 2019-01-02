@@ -1,5 +1,6 @@
+// This is the CONTROLLER Module
 const Thing = require('../models/thing');
-
+/* POST ROUTE - Add a record */
 exports.createThing = (req, res, next) => {
   const thing = new Thing({
     title: req.body.title,
@@ -22,7 +23,7 @@ exports.createThing = (req, res, next) => {
     }
   );
 };
-
+/* GET ROUTE - View Single a record */
 exports.getOneThing = (req, res, next) => {
   Thing.findOne({
     _id: req.params.id
@@ -38,7 +39,7 @@ exports.getOneThing = (req, res, next) => {
     }
   );
 };
-
+/* PUT ROUTE - Modify a record */
 exports.modifyThing = (req, res, next) => {
   const thing = new Thing({
     _id: req.params.id,
@@ -62,7 +63,7 @@ exports.modifyThing = (req, res, next) => {
     }
   );
 };
-
+/* DELETE ROUTE - Delete a record */
 exports.deleteThing = (req, res, next) => {
   Thing.deleteOne({_id: req.params.id}).then(
     () => {
@@ -78,7 +79,7 @@ exports.deleteThing = (req, res, next) => {
     }
   );
 };
-
+/* GET ROUTE - Get All records */
 exports.getAllStuff = (req, res, next) => {
   Thing.find().then(
     (things) => {
